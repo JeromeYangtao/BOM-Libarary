@@ -1,3 +1,4 @@
+// 自己实现的类似jQuery的DOM，BOM库
 window.$ = function(selectorOrNode) {
     let array = []
 
@@ -117,26 +118,26 @@ $.bom = {
         // 找到所有查询字符串，并以键值对的形式保存
         let searshAll = function() {
             let result = []
-            let search = window.location.search
 
             // 去掉'?'
-            if (search[0] === '?') {
-                search = search.slice(1)
-            }
+            let search = window.location.search ? location.search.substring(1) : ''
 
             // 在&处分割成数组
-            let searchArray = search.split('&')
+            let searchArray = search.length ? search.split('&') : []
 
             // 把=改成键值对的形式
-            for (var i = 0; i < searchArray.length; i++) {
+            for (let i = 0; i < searchArray.length; i++) {
                 let parts = searchArray[i].split('=')
 
-                // decodeURIComponent() 函数可对 encodeURIComponent() 函数编码的 URI 进行解码
                 // 防止中文出现乱码
-                result[decodeURIComponent(parts[0])] = decodeURIComponent(parts[1]) || ''
+                let key = decodeURIComponent(parts[0])
+                let value = decodeURIComponent(parts[1]) || ''
+                result[key] = value
             }
             return result
         }
+
+        // 如果传入参数且参数不存在，就新增查询参数
         let result = searshAll()
         if (value === undefined) {
             return result[name]
@@ -154,14 +155,13 @@ $.bom = {
                 window.location.search = newSearch
             }
         }
-
-
-
     }
 }
 
 
 // 使用者输入代码
+// $('.topic')
+// $('.topic').children().width()
 // $.bom.openAtCenter(url, width, height)
 // https://www.google.com.hk/search?hl=zh-CN&q=mdn&gws_rd=ssl
 // $.bom.search(hl) // zh-CN
