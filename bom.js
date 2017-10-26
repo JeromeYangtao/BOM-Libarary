@@ -155,6 +155,16 @@ $.bom = {
                 window.location.search = newSearch
             }
         }
+    },
+    hasPlugin: function(name) {
+        // 检测插件
+        name = name.toLowerCase
+        for (let i = 0; i < navigator.plugins.length; i++) {
+            if (navigator.plugins[i].name.toLowerCase().indexOf(name) > -1) {
+                return true
+            }
+        }
+        return false
     }
 }
 
@@ -166,3 +176,4 @@ $.bom = {
 // https://www.google.com.hk/search?hl=zh-CN&q=mdn&gws_rd=ssl
 // $.bom.search(hl) // zh-CN
 // $.bom.search(hl，english) // ?hl=english
+// $.bom.hasPlugins("Flash")  //true or false
