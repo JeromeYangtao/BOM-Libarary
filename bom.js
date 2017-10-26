@@ -157,7 +157,7 @@ $.bom = {
         }
     },
     hasPlugin: function(name) {
-        // 检测插件
+        // 检测插件是否存在
         name = name.toLowerCase
         for (let i = 0; i < navigator.plugins.length; i++) {
             if (navigator.plugins[i].name.toLowerCase().indexOf(name) > -1) {
@@ -165,6 +165,15 @@ $.bom = {
             }
         }
         return false
+    },
+    hasIEPlugin(name) {
+        // 检测IE的插件
+        try {
+            new ActiveXObject(name)
+            return true
+        } catch (ex) {
+            return false
+        }
     }
 }
 
