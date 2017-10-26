@@ -174,6 +174,22 @@ $.bom = {
         } catch (ex) {
             return false
         }
+    },
+    hasFlash() {
+        检测是否存在Flash
+        let result = this.hasPlugin("Flash")
+        if (!result) {
+            result = this.hasIEPlugin("ShockwaveFlash.ShockwaveFlash")
+        }
+        return result
+    },
+    hasQuickTime() {
+        检测是否存在QuickTime
+        let result = this.hasPlugin("QuickTime")
+        if (!result) {
+            result = this.hasIEPlugin("QuickTime.QuickTime")
+        }
+        return result
     }
 }
 
@@ -186,3 +202,5 @@ $.bom = {
 // $.bom.search(hl) // zh-CN
 // $.bom.search(hl，english) // ?hl=english
 // $.bom.hasPlugins("Flash")  //true or false
+// $.bom.hasFlash()  //true or false
+// $.bom.hasQuickTime()  //true or false
