@@ -18,24 +18,29 @@ window.$ = function(selectorOrNode) {
         }
     }
 
-
+    // 事件监听
     array.on = function(eventType, fn) {
         for (let i = 0; i < array.length; i++) {
             array[i].addEventListener(eventType, fn)
         }
     }
+
+    // 点击事件
     array.click = function(fn) {
         for (let i = 0; i < array.length; i++) {
             array[i].addEventListener('click', fn)
         }
     }
 
+    // 增加class
     array.addClass = function(className) {
         for (let i = 0; i < array.length; i++) {
             array[i].classList.add(className)
         }
         return array
     }
+
+    // 去掉class
     array.removeClass = function(className) {
         for (let i = 0; i < array.length; i++) {
             array[i].classList.remove(className)
@@ -43,6 +48,7 @@ window.$ = function(selectorOrNode) {
         return array
     }
 
+    // 获取或设置文本
     array.text = function(textContent) {
         if (textContent === undefined) {
             return array[0].innerHTML
@@ -54,10 +60,12 @@ window.$ = function(selectorOrNode) {
         }
     }
 
+    // 获取第index个元素
     array.get = function(index) {
         return array[index]
     }
 
+    // 获取同辈元素
     array.siblings = function() {
         let resultArray = []
         let children = array[0].parentElement.children
@@ -70,17 +78,23 @@ window.$ = function(selectorOrNode) {
         items.previousSelection = array
         return items
     }
+
+    // 获取parent元素
     array.parent = function() {
         return array[0].parentElement
     }
+
+    // 获取children元素
     array.children = function() {
         return array[0].children
     }
 
+    // 返回最开始选择的元素
     array.end = function() {
         return array.previousSelection
     }
 
+    // 获取或设置元素宽度
     array.width = function(number) {
         if (number === undefined) {
             return array[0].offsetWidth
@@ -91,6 +105,8 @@ window.$ = function(selectorOrNode) {
             }
         }
     }
+
+    // 获取或设置元素高度
     array.height = function(number) {
         if (number === undefined) {
             return array[0].offsetWidth
