@@ -108,6 +108,7 @@ window.$ = function(selectorOrNode) {
             for (let i = 0; i < array.length; i++) {
                 array[i].style.width = `${number}px`
             }
+            return array
         }
     }
 
@@ -120,6 +121,7 @@ window.$ = function(selectorOrNode) {
             for (let i = 0; i < array.length; i++) {
                 array[i].style.height = `${number}px`
             }
+            return array
         }
     }
 
@@ -129,6 +131,18 @@ window.$ = function(selectorOrNode) {
         script.type = "text/javascript"
         script.src = url
         document.body.appendChild(script)
+        return array
+    }
+
+    //动态加载样式
+    array.loadStyle = function(url) {
+        let link = document.createElement("link")
+        link.rel = "stylesheet"
+        link.type = "text/css"
+        link.href = url
+        let head = document.getElementsByTagName("head")[0]
+        head.appendChild(link)
+        return array
     }
 
     return array
