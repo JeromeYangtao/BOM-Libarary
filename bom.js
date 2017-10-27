@@ -1,4 +1,9 @@
-// 自己实现的类似jQuery的DOM，BOM库
+/**
+ * DOM,BOM库 
+ * @datetime 2017-10-27
+ * @author Thomson<yangtao135@foxmail.com>
+ */
+
 window.$ = function(selectorOrNode) {
     let array = []
 
@@ -208,15 +213,3 @@ $.bom = {
         return result
     }
 }
-
-
-// 使用者输入代码
-// $('.topic')
-// $('.topic').children().width()
-// $.bom.openAtCenter(url, width, height)
-// https://www.google.com.hk/search?hl=zh-CN&q=mdn&gws_rd=ssl
-// $.bom.search(hl) // zh-CN
-// $.bom.search(hl，english) // ?hl=english
-// $.bom.hasPlugins("Flash")  //true or false
-// $.bom.hasFlash()  //true or false
-// $.bom.hasQuickTime()  //true or false
