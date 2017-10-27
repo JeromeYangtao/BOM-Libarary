@@ -2,9 +2,9 @@
 
 自己动手实现的类似jQuery的DOM，BOM库。API功能保持和jQuery一致
 
-###已经实现的方法
+### 已经实现的方法
 
-######DOM相关
+###### DOM相关
 
 - on
 - click
@@ -19,7 +19,7 @@
 - width
 - height
 
-#####BOM相关
+##### BOM相关
 
 - openAtCenter
 - search

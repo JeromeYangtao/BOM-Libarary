@@ -123,6 +123,13 @@ window.$ = function(selectorOrNode) {
         }
     }
 
+    //动态加载脚本
+    array.loadScript = function(url) {
+        let script = document.createElement("script")
+        script.type = "text/javascript"
+        script.src = url
+        document.body.appendChild(script)
+    }
 
     return array
 }
