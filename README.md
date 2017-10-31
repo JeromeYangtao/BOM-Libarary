@@ -5,7 +5,7 @@
 ### 已经实现的方法
 
 ###### DOM相关
-
+- 链式调用
 - on
 - click
 - addClass
@@ -18,6 +18,7 @@
 - end
 - width
 - height
+- serialize
 
 ##### BOM相关
 
